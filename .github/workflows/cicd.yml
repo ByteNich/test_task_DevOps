@@ -30,7 +30,12 @@ jobs:
           docker build -t trsnich/my-python-app:latest .
           docker push trsnich/my-python-app:latest
 
-      # 5. Проверяем образ на уязвимости
+      # 5. Устанавливаем Trivy
+      - name: Install Trivy
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+
+      # 6. Сканируем образ на уязвимости с помощью Trivy
       - name: Scan image for vulnerabilities
         run: |
-          docker scout quickview trsnich/my-python-app:latest
+          trivy image --exit-code 1 --severity HIGH,CRITICAL trsnich/my-python-app:latest
