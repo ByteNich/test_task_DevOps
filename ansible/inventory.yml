@@ -1,0 +1,7 @@
+---
+all:
+  hosts:
+    web_servers:
+      ansible_host: 45.15.157.202
+      ansible_user: root
+      ansible_ssh_private_key_file: /Users/nikolajturovskij/.ssh/id_rsa

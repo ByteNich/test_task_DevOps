@@ -1,0 +1,4 @@
+---
+- hosts: web_servers
+  roles:
+    - deploy_app
