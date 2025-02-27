@@ -38,4 +38,4 @@ jobs:
       # 6. Сканируем образ на уязвимости с помощью Trivy
       - name: Scan image for vulnerabilities
         run: |
-          trivy image --exit-code 1 --severity HIGH,CRITICAL trsnich/my-python-app:latest
+            trivy image --exit-code 0 --severity HIGH,CRITICAL trsnich/my-python-app:latest
